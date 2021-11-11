@@ -89,7 +89,7 @@ do
                 cd $SPLASH_ROOT_PATH/apps/$val/contiguous_partitions/ && make clean
                 cd $SPLASH_ROOT_PATH/apps/$val/contiguous_partitions/ && make input=$1 filename=$name1
                 echo "Executing ocean_contiguous_partitions"
-                cd $SPLASH_ROOT_PATH/apps/$val/contiguous_partitions/ && time -p ./OCEAN -p $THREADS -n 4098 -t 14400 -r 10000 > $SPLASH_ROOT_PATH/apps/$val/contiguous_partitions/$val"_contiguous_partitions."$1".txt"
+                cd $SPLASH_ROOT_PATH/apps/$val/contiguous_partitions/ && time -p ./OCEAN -n 4098 -p 1 -r 10000 -t 14400 > $SPLASH_ROOT_PATH/apps/$val/contiguous_partitions/$val"_contiguous_partitions."$1".txt"
                 if [ $1 == "get-annotation" ];
                 then
                     cp $LOG_DIR/$name1".txt" $LOG_DIR/$name1"_"$THREADS".txt"
@@ -128,7 +128,7 @@ do
                 cd $SPLASH_ROOT_PATH/apps/$val/ && make clean
                 cd $SPLASH_ROOT_PATH/apps/$val/ && make input=$1 filename=$name
                 echo "Executing radiosity"
-                cd $SPLASH_ROOT_PATH/apps/$val/ && time -p ./RADIOSITY -p $THREADS -batch -largeroom -bf 0.00025 > $SPLASH_ROOT_PATH/apps/$val/$val"."$1".txt"
+                cd $SPLASH_ROOT_PATH/apps/$val/ && time -p ./RADIOSITY -p $THREADS -batch -largeroom -bf 0.00015 > $SPLASH_ROOT_PATH/apps/$val/$val"."$1".txt"
                 if [ $1 == "get-annotation" ];
                 then
                     cp $LOG_DIR/$name".txt" $LOG_DIR/$name"_"$THREADS".txt"
